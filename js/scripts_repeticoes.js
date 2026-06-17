@@ -66,3 +66,6 @@ for(let posicao in presentes){
 
 }
 
+//FOR OF
+const divForOf = document.querySelector('#div-forof')
+
