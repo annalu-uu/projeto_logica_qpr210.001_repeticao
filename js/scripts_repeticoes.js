@@ -29,7 +29,7 @@ btnNum.addEventListener('click', (evt) => {
 });
 
 
-//CONTROLANDO FOR (Finalizado)
+//CONTROLANDO FOR 
 const inputFrase = document.querySelector('#frase')
 const inputNumRepeticao = document.querySelector('#num-repeticao')
 const btnFrase = document.querySelector('#btn-frase')
@@ -39,11 +39,11 @@ btnFrase.addEventListener('click', (evt) => {
     let frase = inputFrase.value
     let NumRepeti = Number(inputNumRepeticao.value)
 
-    for (let i = 0; i < numRepeti; i++) {
+    for (let i = 0; i < inputNumRepeticao; i++){
        divFrase.innerHTML += `${i + 1} - ${frase} <br>`
 
-    divFrase.innerHTML = resultadoFrases
-   }
+    
+    }
 
 })
 
