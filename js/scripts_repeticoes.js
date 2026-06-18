@@ -80,10 +80,11 @@ const divForeach = document.querySelector('#div-foreach')
 
 presentes.forEach((elemento, i)=>{
 
-    divForeach.innerHTML += `${i}{elemento} <br>`
+    divForeach.innerHTML += `${i} - ${elemento} <br>`
 
 })
 
+//COLEÇÃO DE OBJETOS LITERAIS - ARRAY
 const pessoas = [
     {nome: 'Maria Flor', idade: 25, renda: 8500},
     {nome: 'Joerdson Souza', idade: 75, renda: 5000},
@@ -93,22 +94,48 @@ const pessoas = [
 
 ]
 
-//LISTA LITERAL PELO FOR
+//MANIPULANDO A REDE
+//ADICIONAR ELEMENTOS NO ARRAY
+pessoas.push({nome: 'Magnólia, idade: 32< renda: 3500'})
+pessoas.unshift({nome: 'Joerdison', idade: '36', renda: 100000})
+
+//SPLICE ADICIONA EM UMA POSIÇÃO SEM EXCLUIR UM ELEMENTO 
+pessoas.splice(3,0,{nome: 'Extraterrestre', idade: 250, 
+renda: 0.50})
+
+//SPLICE EXCLUI UMA POSIÇÃO E NESSE EXEMPLO EXCLUI APENAS ELEMENTO A PARTIR DA POSIÇÃO(INDÍCE) INFORMADO
+pessoas.splice(3,2,{nome: 'Extraterrestre', idade: 250, 
+renda: 0.50 })
+
+//SPLICE EXCLUI UMA POSIÇÃO E NESSE EXEMPLO EXCLUI APENAS O ELEMENTO DA POSIÇÃO(INDÍCE) INFORMADA
+pessoas.splice(1,0)
+
+//SLPICE EXCLUI DOIS ELEMENTOS A PARTIR DA POSIÇÃO(INDÍCE) INFORMADA
+pessoas.splice(2,2)
+
+//EXCLUI O ÚLTIMO ELEMENTO DO ARRAY
+pessoas.pop()
+
+//EXIBIR O ÚLTIMO ELEMENTO DO ARRAY
+console.log('TOTAL DE DE ELEMENTOS NO ARRAY pessoas ====> ', pessoas.lenght)
+//LISTANDO LITERAL PELO FOR
 const divListaObjFor = document.querySelector('#div-listaobj-for')
 
 for(i = 0; i < pessoas.length;i++){
-    divListaObjFor.innerHTML += `${pessoas[i].nome}, ${pessoas[i].idade}
-    R$ ${pessoas[i].renda.toFixed(2).replace('.',',')} <br>`
+divListaObjFor.innerHTML += `${pessoas[i].nome}, ${pessoas[i].idade}
+R$ ${pessoas[i].renda.toFixed(2).replace('.',',')} <br>`
 
 }
+
+
 
 //LISTANDO OBJETO LITERAL PELO FOR/IN
 const divListaObjForIn = document.querySelector
 ('#div-listaobj-forin')
 
 for (let indice in pessoas){
-  divListaObjForIn.innerHTML += `${indice} - ${pessoas[
-    indice].nome}, ${pessoas[indice].idade}, R$ ${pessoas[indice].renda.toFixed(2).replace
+  divListaObjForIn.innerHTML += `${indice} - ${pessoas
+    [indice].nome}, ${pessoas[indice].idade}, R$ ${pessoas[indice].renda.toFixed(2).replace
     ('.',',')} <br>`
 
 }
