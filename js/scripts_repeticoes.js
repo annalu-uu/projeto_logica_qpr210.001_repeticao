@@ -1,32 +1,33 @@
 // ESTRUTURA DE REPETIÇÃO FOR
-const divFor = document.querySelector('#div-for');
-let resultadoFor = ''; // Acumula o texto primeiro
+const divFor = document.querySelector('#div-for')
 
-for (let i = 0; i < 10; i++) { // 'let' adicionado aqui
+for (let i = 0; i < 10; i++) { 
     console.log(i, 'Amor');
-    resultadoFor += `${i} - Amor <br>`;
+    divFor.innerHTML += `${i} - Amor <br>`
+
 }
-divFor.innerHTML = resultadoFor; // Atualiza o DOM apenas uma vez
+
 
 
 //CONTADOR/ACUMULADOR
-const inputNum = document.querySelector('#num');
-const btnNum = document.querySelector('#btn-num');
-const divContAcum = document.querySelector('#div-cont-acum');
+const inputNum = document.querySelector('#num')
+const btnNum = document.querySelector('#btn-num')
+const divContAcum = document.querySelector('#div-cont-acum')
 
-let cont = 0;
-let acum = 0;
+let cont = 0
+let acum = 0.0
 
 btnNum.addEventListener('click', (evt) => {
-    let numDigitado = Number(inputNum.value);
+    let numDigitado = Number(inputNum.value)
 
-    cont++;
-    acum += numDigitado;
+    cont++
+    acum += numDigitado
 
-    divContAcum.innerHTML = `TOTAL DE NÚMERO DIGITADO É: ${cont} <br> A SOMA DOS NÚMEROS É: ${acum}`;
+    divContAcum.innerHTML = `TOTAL DE NÚMERO DIGITADO É: ${cont} <br> 
+    A SOMA DOS NÚMEROS É: ${acum}`
 
-    inputNum.value = '';
-});
+    inputNum.value = ''
+})
 
 
 //CONTROLANDO FOR 
@@ -48,7 +49,8 @@ btnFrase.addEventListener('click', (evt) => {
 })
 
 //COLEÇÃO DE DADOS - ARRAY
-const presentes = ['Bicicleta', 'Celular', 'Camisa do Mengão', 'Doleira', 'Tênis Adidas']
+const presentes = ['Bicicleta', 'Celular', 'Camisa do Mengão', 
+    'Doleira', 'Tênis Adidas']
 
 const divArray = document.querySelector('#div-array')
 
@@ -97,4 +99,42 @@ const divListaObjFor = document.querySelector('#div-listaobj-for')
 for(i = 0; i < pessoas.length;i++){
     divListaObjFor.innerHTML += `${pessoas[i].nome}, ${pessoas[i].idade}
     R$ ${pessoas[i].renda.toFixed(2).replace('.',',')} <br>`
+
 }
+
+//LISTANDO OBJETO LITERAL PELO FOR/IN
+const divListaObjForIn = document.querySelector
+('#div-listaobj-forin')
+
+for (let indice in pessoas){
+  divListaObjForIn.innerHTML += `${indice} - ${pessoas[
+    indice].nome}, ${pessoas[indice].idade}, R$ ${pessoas[indice].renda.toFixed(2).replace
+    ('.',',')} <br>`
+
+}
+
+//LISTANDO OBJETO LITERAL FOR/OF
+const divListaForOF = document.querySelector
+('#div-listaobj-forof')
+
+let contForof = 0
+
+for (let elem of pessoas){
+    contForof++
+
+    divListaForOF.innerHTML += `${contForof} -${elem.nome},
+    ${elem.idade}, R$ ${elem.renda.toFixed(2).replace('.',',')} <br>`
+
+}
+
+//LISTANDO OBJETO LITERAL PELO FOREACH
+const divListaForeach = document.querySelector
+('#div-lista-foreach')
+
+pessoas.forEach((elem, i)=>{
+    divListaForeach.innerHTML += `${i + 1} - ${elem.nome}, 
+    ${elem.idade} R${elem.renda.toFixed(2).replace('.',',')}
+    <br>`
+
+})
+
