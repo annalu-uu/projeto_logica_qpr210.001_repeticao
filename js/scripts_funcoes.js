@@ -59,7 +59,7 @@ console.log(multiplicacao(64, 5))
 }, 5000)
 
 
-    let cont = 0
+    /*let cont = 0
     const intervalo = setInterval(()=>{
         cont++
     console.log("Repetição de setInterval")
@@ -68,10 +68,11 @@ console.log(multiplicacao(64, 5))
         clearInterval(intervalo)
     }
 
-}, 3000)
+}, 3000)*/
 
+    const divNumSorteio = document.querySelector('#div-num-sorteio')
     
-    let contVolta = 0,numSorteado = 0
+    let contVolta = 0,numSorteado = 0, contPar = 0, contImpar = 0
 
     const sorteio = setInterval(() => {
         contVolta++
@@ -80,9 +81,24 @@ console.log(multiplicacao(64, 5))
 
         console.log(`${contVolta}º número sorteado ${numSorteado}`)
 
-        if(contVolta == 6) {
+        if (numSorteado % 2 == 0) {
+            contPar++
+        }else{
+            contImpar++
+        }
+
+        divNumSorteio.innerHTML += `${contVolta}º número gerado ${numSorteado} - ${numSorteado % 2 == 0 ? 'PAR' :
+        'ÌMPAR'} <br>`
+
+        if(numSorteado == 6) {
             console.log('-----> SORTEIO ENCERRADO <-----')
-            divNumSorteio.innerHTML += '----> SORTEIO ENCERRADO <----'
+
+            divNumSorteio.innerHTML += `----> SORTEIO ENCERRADO <---- <br>
+            TOTAL DE NÚMEROS GERADOS: ${contVolta} <br>
+            TOTAL DE NÚMEROS PAR: ${contPar} <br>
+            TOTAL DE NÚMEROS ÍMPAR: ${contImpar}
+            `
+
             clearInterval(sorteio)
             contVolta = 0
             numSorteado = 0
