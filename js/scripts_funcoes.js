@@ -82,10 +82,11 @@ console.log(multiplicacao(64, 5))
 
         if(contVolta == 6) {
             console.log('-----> SORTEIO ENCERRADO <-----')
+            divNumSorteio.innerHTML += '----> SORTEIO ENCERRADO <----'
             clearInterval(sorteio)
             contVolta = 0
             numSorteado = 0
 
-            
+
     }
 }, 2000)
