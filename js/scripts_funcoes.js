@@ -73,19 +73,19 @@ console.log(multiplicacao(64, 5))
     
     let contVolta = 0,numSorteado = 0
 
-    const sorteo = setInterval(() => {
+    const sorteio = setInterval(() => {
         contVolta++
 
-        numSorteado = parseInt(Math.random())
+        numSorteado = parseInt(Math.random() * 60)
 
-        console.log(`${contVolta}° número sorteado ${numSorteado}`)
+        console.log(`${contVolta}º número sorteado ${numSorteado}`)
 
         if(contVolta == 6) {
-            clearInterval(sorteo)
+            console.log('-----> SORTEIO ENCERRADO <-----')
+            clearInterval(sorteio)
             contVolta = 0
             numSorteado = 0
 
-
+            
     }
-
-})
+}, 2000)
